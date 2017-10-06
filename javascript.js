@@ -8,7 +8,10 @@ var forEach;
 
 
 window.addEventListener("keydown",checkKey,false);
-
+/*****************
+During game play, users can press the "h" key
+once for help. The lines will briefly appear.
+*****************/
 function checkKey(e){
 	if (e.keyCode == "72" && (numberHelps == 0) && (gameOn == 1)) {
 		
@@ -29,7 +32,9 @@ function checkKey(e){
 
 }
 
-
+/************
+Clock manager function
+************/
 function theClock(status){
 	
      var minutesLabel = document.getElementById("minutes");
@@ -63,6 +68,9 @@ function theClock(status){
 		clearInterval(intervalID);
 	}
 }
+/***********
+Fade the lines when the timer has gone to 0
+************/
 function fadeLines(){
  forEach = Array.prototype.forEach;
   $$ = document.querySelectorAll.bind(document);
@@ -71,6 +79,9 @@ function fadeLines(){
   });
 
 }
+/************* 
+Starts the game 
+*************/
 function theClick(){
   forEach = Array.prototype.forEach;
   $$ = document.querySelectorAll.bind(document);
@@ -82,7 +93,10 @@ function theClick(){
   
 
 }
-
+/*****************
+Ends the game:
+Best game score kept
+*****************/
 function theClick2(){
 	 forEach = Array.prototype.forEach;
   $$ = document.querySelectorAll.bind(document);
@@ -114,6 +128,11 @@ function theClick2(){
   //theClock(1);
 
 }
+/**********
+Lose game:
+If you mouse over any of the lines you
+lose the game
+**********/
 function clickWrapper(){
 var forEach = Array.prototype.forEach;
   $$ = document.querySelectorAll.bind(document);
@@ -139,6 +158,11 @@ var forEach = Array.prototype.forEach;
 	
 }
 
+/**********
+Lose game:
+Tracks all lines during game and makes sure no mouseover.
+Calls clickWrapper.
+**********/
 window.onload = function(){
 	
   var theClass = document.getElementsByClassName('line');
@@ -149,6 +173,9 @@ window.onload = function(){
 		alert(x);
   }
 }
+/**************
+Navigation active/unactive
+**************/
 function navActive(){
 	var theBody = document.getElementsByTagName('body')[0];
 	var hasID = theBody.hasAttribute("id");
@@ -167,6 +194,9 @@ function showDirections(){
         div.style.display = 'block';
     }
 }
+/****************
+ 
+****************/
 function showHelp(){
 	var div = document.getElementById('help-instructions');
     if (div.style.display !== 'none') {
@@ -176,7 +206,9 @@ function showHelp(){
         div.style.display = 'block';
     }
 }
-
+/**********
+Win or Lose splash screens
+***********/
 function winSplash(){
 	var div = document.getElementById('win');
 	var div2 = document.getElementById('win-lose-holder');
